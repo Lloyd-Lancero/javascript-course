@@ -438,3 +438,79 @@
 // console.log(`\nAfter updates:`);
 // console.log(user.getSummary());
 
+const message = document.querySelector(`.message`);
+console.log(message);
+
+const button = document.querySelector(`#btn`);
+console.log(button);
+
+const heading = document.querySelector(`h1`);
+console.log(heading);
+
+console.log(message.textContent);
+console.log(button.id);
+console.log(heading.tagName);
+console.log(heading.textContent);
+
+const buttonByID = document.getElementById(`btn`);
+console.log(buttonByID);
+console.log(buttonByID === button);
+
+const allParagraphs = document.querySelectorAll(`p`);
+console.log(allParagraphs);
+console.log(allParagraphs[0]);
+
+const message1 = document.querySelector(`.message`);
+
+console.log(message1.textContent);
+message1.textContent = `Hello, World!`;  
+console.log(message1.textContent);
+
+message1.innerHTML = `<strong>Bold Text!</strong>`;
+
+console.log(message1.innerText);
+
+const input = document.querySelector(`.guess`);
+
+console.log(input.value);
+input.value = `Default text`;
+
+const heading1 = document.querySelector(`h1`);
+heading1.style.color = `blue`;
+heading1.style.backgroundColor = `yellow`;
+heading.style.fontSize = `3rem`;
+
+const button1 = document.querySelector(`#btn`);
+button1.style.padding = `20px 20px`;
+button1.style.borderRadius = `15px`;
+
+button1.addEventListener(`click`, function() {
+    console.log(`Button clicked!`);
+    message1.textContent = `Button was clicked!`;
+    message1.style.color = 'green';
+});
+
+let clickCount = 0;
+
+button1.addEventListener(`click`, function() {
+    clickCount++;
+    button1.textContent = `Button clicked ${clickCount} times`;
+    button1.style.backgroundColor = `hsl(${clickCount * 20}, 70%, 50%)`;    
+});
+
+const display = document.querySelector(`.message`);
+
+input.addEventListener(`input`, function() {
+    const userText = input.value;
+    display.textContent = `You typed: ${userText}`;
+    display.style.fontSize = `${userText.length + 5}px`;
+});
+
+input.addEventListener(`keydown`, function(event) {
+    console.log(`Key pressed: ${event.key}`);
+    if (event.key === `Enter`) {
+        display.textContent = `You pressed Enter, Text was: ${input.value}`;
+        input.value = ``;
+    }
+});
+
